@@ -132,8 +132,18 @@ Add the following header to all API requests: `x-ngrok-token: thisistotallysecre
 ### GET /snippets
 Returns all snippets ordered by creation date (newest first).
 
+**Response includes:**
+- `id` (integer) - Unique identifier
+- `title` (string) - Snippet title
+- `description` (string) - Optional description
+- `code` (string) - The code content
+- `language` (string) - Programming language
+- `tags` (string) - Comma-separated tags
+- `created_at` (datetime) - When snippet was created
+- `updated_at` (datetime) - When snippet was last updated
+
 ### GET /snippets/:id
-Returns a specific snippet by ID.
+Returns a specific snippet by ID with the same fields as above.
 
 ### POST /snippets
 Creates a new snippet.
@@ -146,6 +156,13 @@ Creates a new snippet.
 **Optional fields:**
 - `description` (string)
 - `tags` (string)
+
+### DELETE /snippets
+Deletes all snippets from the database.
+
+**Response:**
+- `message` (string) - Confirmation message with count
+- `deletedCount` (number) - Number of snippets deleted
 
 **Example:**
 ```bash

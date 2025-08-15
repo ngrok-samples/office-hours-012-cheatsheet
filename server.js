@@ -75,6 +75,19 @@ app.post('/snippets', (req, res) => {
   stmt.finalize();
 });
 
+app.delete('/snippets', (req, res) => {
+  db.run('DELETE FROM snippets', function(err) {
+    if (err) {
+      res.status(500).json({ error: err.message });
+      return;
+    }
+    res.json({ 
+      message: `Deleted ${this.changes} snippets`,
+      deletedCount: this.changes
+    });
+  });
+});
+
 app.listen(PORT, () => {
   console.log(`Cheatsheet API server running on port ${PORT}`);
 });
