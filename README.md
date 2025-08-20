@@ -38,7 +38,6 @@ In addition, include the following:
 - Syntax highlighting for popular languages, including YAML.
 - An `API_BASE_URL` variable to query for data, which can start as
   `https://localhost:3000` but must be user-customizable.
-- Rea
 
 Do not include mock data.
 
